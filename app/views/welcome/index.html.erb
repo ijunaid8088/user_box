@@ -8,37 +8,41 @@
       <img alt="" src="">
     </div>
     <div id="sumo">
-      <img alt="SUMO LOGIC" src="/logo_sm.png">
+      <img src="/logo_sm.png">
     </div>
-    <form id="form-login" onsubmit="return false;" method="post" autocomplete="off" class="ng-pristine ng-valid">
-      <table>
-        <tbody><tr>
-          <td width="308">
-            <input tabindex="1" type="text" id="input-email" placeholder="Email" name="login" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
-          </td>
-        </tr>
-        <tr>
-          <td width="308">
-            <input tabindex="2" type="password" id="input-password" placeholder="Password" name="password" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
-          </td>
-        </tr>
-        <tr>
-          <td width="308" align="right" class="submit-button-ctr">
-            <div id="forgot-password-link-div">
-              <a id="forgot-password-link">Forgot your password?</a>
-            </div>
-            <button type="submit" tabindex="3" class="sumo-button -large" id="button-login" data-spinner="">
-              Sign in
-            </button>
-        </td></tr>
-      </tbody>
-    </table>
-
-      <div id="custom-message">null</div>
-
+      <form id="form-login" method="POST" autocomplete="off" class="ng-pristine ng-valid" action="/session/create">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <table>
+          <tbody><tr>
+            <td width="308">
+              <input tabindex="1" type="text" id="input-email" placeholder="Email" name="email" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
+            </td>
+          </tr>
+          <tr>
+            <td width="308">
+              <input tabindex="2" type="password" id="input-password" placeholder="Password" name="password" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
+            </td>
+          </tr>
+          <tr>
+            <td width="308" align="right" class="submit-button-ctr">
+              <div id="forgot-password-link-div">
+                <a id="forgot-password-link">Forgot your password?</a>
+              </div>
+              <button type="submit" tabindex="3" class="sumo-button -large" id="button-login" data-spinner="">
+                Sign in
+              </button>
+          </td></tr>
+        </tbody>
+      </table>
     </form>
 
     <div class="login-box" id="forgot-password-box"></div>
     <!--<div id="login-footer"></div>-->
   </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    window.initializeIndex();
+  });
+</script>
