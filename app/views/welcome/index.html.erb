@@ -1,0 +1,44 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/welcome/index.css" %>
+<% end %>
+<div id="login" class="login-view-v2 login-bg-15 login-bg-5 login-bg-1 login-bg-10">
+  <div class="content ">
+
+    <div id="custom-logo">
+      <img alt="" src="">
+    </div>
+    <div id="sumo">
+      <img alt="SUMO LOGIC" src="/logo_sm.png">
+    </div>
+    <form id="form-login" onsubmit="return false;" method="post" autocomplete="off" class="ng-pristine ng-valid">
+      <table>
+        <tbody><tr>
+          <td width="308">
+            <input tabindex="1" type="text" id="input-email" placeholder="Email" name="login" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
+          </td>
+        </tr>
+        <tr>
+          <td width="308">
+            <input tabindex="2" type="password" id="input-password" placeholder="Password" name="password" value="" autocapitalize="off" autocorrect="off" autocomplete="off">
+          </td>
+        </tr>
+        <tr>
+          <td width="308" align="right" class="submit-button-ctr">
+            <div id="forgot-password-link-div">
+              <a id="forgot-password-link">Forgot your password?</a>
+            </div>
+            <button type="submit" tabindex="3" class="sumo-button -large" id="button-login" data-spinner="">
+              Sign in
+            </button>
+        </td></tr>
+      </tbody>
+    </table>
+
+      <div id="custom-message">null</div>
+
+    </form>
+
+    <div class="login-box" id="forgot-password-box"></div>
+    <!--<div id="login-footer"></div>-->
+  </div>
+</div>

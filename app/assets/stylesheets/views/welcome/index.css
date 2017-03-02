@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.login-view-v2 {
+  margin-top: 100px;
+}
+
+#login.login-view-v2 .content {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  position: relative;
+  background-color: rgba(234, 238, 241, 0.85);
+  max-width: 330px;
+  padding: 60px 72px;
+  z-index: 100;
+}
+
+#login #custom-logo, #login-verification #custom-message, #login-verification #custom-logo {
+  display: none;
+}
+
+#login.login-view-v2 #form-login, #login.login-view-v2 #forgot-password-view {
+  margin: 0;
+}
+
+#login.login-view-v2 #form-login table, #login.login-view-v2 #forgot-password-view table {
+  border-collapse: collapse;
+}
+
+#login.login-view-v2 #form-login input, #login.login-view-v2 #forgot-password-view input {
+  width: 308px;
+  height: 30px;
+  margin: 0 0 4px;
+  padding: 6px 10px;
+  font-size: 16px;
+  font-family: Roboto;
+  color: #333333;
+}
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="email"], input[type="url"], textarea, select {
+  border: 1px solid #DDE4E9;
+  outline: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  margin: 0;
+  padding: 6px 8px;
+  width: 210px;
+  max-width: 100%;
+  background: #FFFFFF;
+}
+
+#login.login-view-v2 #form-login .submit-button-ctr, #login.login-view-v2 #forgot-password-view .submit-button-ctr {
+  height: 50px;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+#login #forgot-password-link-div, #login-verification #forgot-password-link-div {
+  float: left;
+}
+
+#login.login-view-v2 #forgot-password-link {
+  text-decoration: none;
+  font-size: 12px;
+  color: #9499A0;
+}
+
+#login #forgot-password-link, #login-verification #forgot-password-link {
+  color: gray;
+}
+
+.prada a, .prada a:visited {
+  color: #333;
+  text-decoration: underline;
+  outline: 0;
+  cursor: pointer;
+}
+
+.sumo-button, .sumo-button--upgrade {
+  background: #29A1E6;
+  color: #FFFFFF;
+}
+
+button.-large, .sumo-button--upgrade {
+  height: 40px;
+  line-height: 38px;
+  min-width: 120px;
+}
+
+#login #custom-message, #login #custom-logo, #login-verification #custom-message, #login-verification #custom-logo {
+  display: none;
+}
+
+#login.login-view-v2 .login-box {
+  padding: 0;
+}
+
+#login .content .login-box, #login-verification .content .login-box {
+  padding: 16px 0 18px;
+}
+
+#forgot-password-box {
+  display: none;
+}
+
+div {
+  display: block;
+}
+
+#login .content, #login-verification .content {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 15px;
+}
+
+.prada {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+#login.login-view-v2 .login-box {
+  padding: 0;
+}
+
+#login .content .login-box, #login-verification .content .login-box {
+  padding: 16px 0 18px;
+}
+#heroku-error-box {
+  display: none;
+  width: 530px;
+  margin: 160px auto 0;
+  text-align: center;
+}
+
+.sw-entry-btn-ctr .sw-entry-btn, .sumo-button, .sumo-button--upgrade, .dropdown-button, .toolbar-button--small {
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 16px;
+  border-radius: 2px;
+  border: none;
+}
