@@ -1,1 +1,7 @@
-hello
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/welcome/first_sign_in.css" %>
+<% end %>
+
+<div id="main-container">
+  <div class="box-me">Hello <%= current_user.full_name %></div>
+</div>

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700');
+
+* {
+  margin: 0 auto;
+}
+
+body {
+  background-color: #F1F4F5;
+}
+
+#main-container {
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+.box-me {
+  background-color: #0D1D45;
+  overflow: hidden;
+  color: white;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  /*padding: 20px;*/
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  width:30em;
+  height:18em;
+  margin-top: -9em; /*set to a negative number 1/2 of your height*/
+  margin-left: -15em; /*set to a negative number 1/2 of your width*/
+}
+

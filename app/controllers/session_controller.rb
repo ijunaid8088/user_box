@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
 
   def create
-    pry
     @user = User.find_by_email(params[:email])
     unless @user.present?
       redirect_to root_path, :danger => "Username or Password was wrong."
