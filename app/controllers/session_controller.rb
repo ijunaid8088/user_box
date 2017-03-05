@@ -18,4 +18,14 @@ class SessionController < ApplicationController
       end
     end
   end
+
+  def save_password
+    current_user.actual_password = params[:password]
+    current_user.password = params[:password]
+    if current_user.save
+      redirect_to '/mail_box', :success => "Welcome to MailBox."
+    else
+      redirect_to "/first_sign_in" , :danger => "#{current_user.errors.full_messages.first}"
+    end
+  end
 end

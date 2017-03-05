@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   post "/session/create" => "session#create"
   get "/first_sign_in" => "welcome#first_sign_in"
+  post "/save_password" => "session#save_password"
+  get "/mail_box" => "mailbox#index"
 end
