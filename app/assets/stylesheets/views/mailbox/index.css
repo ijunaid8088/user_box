@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700');
+
+* {
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
+.main-section {
+  width: 960px;
+  overflow: hidden;
+  height: auto;
+}
+
+#side-bar {
+  width: 200px;
+  float: left;
+  padding: 5px;
+  background-color: #EDF0F3;
+  overflow: hidden;
+}
+
+.title-p {
+  font-size: 35px;
+  text-align: center;
+  font-weight: 300;
+  color: #29A1E6;
+  height: 50px;
+}
+
+#main-bar {
+  width: 300px;
+  float: left;
+  padding: 5px;
+  background-color: #EDF0F3;
+  overflow: hidden;
+  border: solid 1px black;
+}
+
+.title-empty {
+  font-size: 35px;
+  text-align: center;
+  font-weight: 300;
+  color: #29A1E6;
+  height: 50px;
+}
+
+
+.button-area {
+  overflow: hidden;
+  float: none;
+  width: 100%;
+  height: auto;
+}
+
+.buttons {
+  font-weight: 700;
+  width: 100%;
+  padding: 10px 0px;
+  color: white;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #1A7BAF;
+  text-align: center;
+}
+
+.hold-both {
+  width: 150px;
+  overflow: hidden;
+}
+
+.am-icon {
+  float: left;
+  font-size: 14px;
+}
+
+.am-texting {
+  width: 100px;
+  text-align: left;
+  float: right;
+  font-size: 14px;
+}

@@ -11,10 +11,10 @@ class SessionController < ApplicationController
         if @user.is_first_login
           redirect_to "/first_sign_in"
         else
-          redirect_to dashboard_path
+          redirect_to '/mail_box', :success => "Welcome to MailBox."
         end
       else
-        redirect_to root_path
+        redirect_to root_path, :danger => "Username or Password was wrong."
       end
     end
   end
@@ -22,6 +22,7 @@ class SessionController < ApplicationController
   def save_password
     current_user.actual_password = params[:password]
     current_user.password = params[:password]
+    current_user.is_first_login = false
     if current_user.save
       redirect_to '/mail_box', :success => "Welcome to MailBox."
     else

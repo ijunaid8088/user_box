@@ -12,4 +12,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( views/welcome/index.css )
 Rails.application.config.assets.precompile += %w( views/welcome/welcome.min.css )
 Rails.application.config.assets.precompile += %w( views/welcome/first_sign_in.css )
+Rails.application.config.assets.precompile += %w( views/mailbox/index.css )
+Rails.application.config.assets.precompile += %w( views/mailbox/icon.css )
 Rails.application.config.assets.precompile += %w( views/bootstrap.min )
