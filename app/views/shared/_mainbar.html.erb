@@ -1,3 +1,27 @@
 <div id="main-bar">
   <p class="title-empty"></p>
+  <div class="area-for-dt">
+    <table id="users_datatables" class="table table-striped m-0">
+        <thead>
+            <tr role="row" class="heading">
+                <th name="order_id" class="sorting">#</th>
+                <th name="order_fullname" class="sorting">Fullname</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <th scope='row'><%= user.id %></th>
+              <td><%= user.full_name %></td>
+            </tr>
+          <% end -%>
+        </tbody>
+    </table>
+  </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    window.initializeMainBar();
+  });
+</script>

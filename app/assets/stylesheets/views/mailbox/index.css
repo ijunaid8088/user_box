@@ -31,24 +31,6 @@ body {
   height: 50px;
 }
 
-#main-bar {
-  width: 300px;
-  float: left;
-  padding: 5px;
-  background-color: #EDF0F3;
-  overflow: hidden;
-  border: solid 1px black;
-}
-
-.title-empty {
-  font-size: 35px;
-  text-align: center;
-  font-weight: 300;
-  color: #29A1E6;
-  height: 50px;
-}
-
-
 .button-area {
   overflow: hidden;
   float: none;
@@ -83,3 +65,13 @@ body {
   float: right;
   font-size: 14px;
 }
+
+.inboxing {
+  width: 700px;
+  border: solid 1px black;
+  overflow: hidden;
+  float: right;
+  background-color: #EDF0F3;
+}
+
+
