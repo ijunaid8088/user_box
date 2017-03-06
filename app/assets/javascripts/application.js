@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require views/dt.boot.js
 //= require turbolinks
 //= require views/index.js
-//= require views/mainbar.js
+//= require views/inbox.js
 

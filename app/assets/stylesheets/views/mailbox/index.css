@@ -74,4 +74,8 @@ body {
   background-color: #EDF0F3;
 }
 
-
+.email-listing {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+}

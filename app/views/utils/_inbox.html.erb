@@ -1,6 +1,75 @@
-<div class="inboxing">
-  <p class="title-p">Inbox</p>
-  <div class="email-listing">
-    
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/bootstrap.min" %>
+  <%= stylesheet_link_tag "views/dashboard/icon.css" %>
+  <%= stylesheet_link_tag "views/dashboard/metisMenu.min.css" %>
+  <%= stylesheet_link_tag "views/dashboard/morris.css" %>
+  <%= stylesheet_link_tag "views/dashboard/style.css" %>
+<% end %>
+
+<div id="page-wrapper">
+
+  <!-- Top Bar Start -->
+  <!-- Page content start -->
+  <div class="page-contentbar">
+
+    <!--left navigation start-->
+    <%= render :partial => 'shared/sidebar' %>
+    <%= render :partial => 'shared/add_email' %>
+    <!--left navigation end-->
+
+    <!-- START PAGE CONTENT -->
+    <div id="page-right-content">
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="header-title">Inbox</h4>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="m-b-20">
+                        <table id="emails_datatables" class="table table-striped m-0">
+                            <thead>
+                                <tr role="row" class="heading">
+                                    <th name="order_id" class="sorting">#</th>
+                                    <th name="order_name" class="sorting">email Name</th>
+                                    <th name="order_namespace" class="sorting">Namespace</th>
+                                    <th name="order_name" class="sorting">Owner Name</th>
+                                    <th name="order_created_at" class="sorting">Created At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @emails.each do |email| %>
+                                <tr>
+                                  <th scope='row'><%= email.id %></th>
+                                  <td><%= email.subject %></td>
+                                  <td><%= email.body %></td>
+                                  <td><%= email.sender.full_name %></td>
+                                  <td><%= email.reciever.full_name %></td>
+                                </tr>
+                              <% end -%>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <!--- end row -->
+        </div> <!-- end col -->
+    </div> <!-- end row -->
   </div>
+      <!-- end container -->
+
+      <%= render :partial => 'shared/footer' %>
+      <!-- end footer -->
+
+    </div>
+    <!-- End #page-right-content -->
+
+  </div>
+  <!-- end .page-contentbar -->
 </div>
+
+<script>
+  $(document).ready(function () {
+    window.initializeInbox();
+  });
+</script>

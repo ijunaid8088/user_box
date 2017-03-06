@@ -1,6 +1,6 @@
 class MailboxController < ApplicationController
 
   def index
-    @users = User.all
+    @emails = Email.all
   end
 end

@@ -1,25 +1,28 @@
-<div id="side-bar">
-  <p class="title-p">MailBox</p>
-  <div class="button-area">
-    <div class="buttons">
-      <div class="hold-both">
-        <i class="am-icon fa fa-edit"></i> <span class="am-texting">Compose</span>
+<aside class="sidebar-navigation">
+      <div class="scrollbar-wrapper">
+        <div>
+          <button type="button" class="button-menu-mobile btn-mobile-view visible-xs visible-sm">
+            <i class="mdi mdi-close"></i>
+          </button>
+          <!-- User Detail box -->
+          <div class="user-details active">
+            <div class="pull-left">
+              <img src="<%= avatar_url(current_user) %>" alt="" class="thumb-md img-circle">
+            </div>
+            <div class="user-info">
+              <a href="#"><%= current_user.full_name %></a>
+              <p class="text-muted m-0">Administrator</p>
+            </div>
+          </div>
+          <!--- End User Detail box -->
+
+          <!-- Left Menu Start -->
+          <ul class="metisMenu nav" id="side-menu">
+            <li>
+              <a href="/mailbox" class="active"><i class="fa fa-inbox"></i><b>Inbox</b></a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="buttons">
-      <div class="hold-both">
-        <i class="am-icon fa fa-inbox"></i> <span class="am-texting">Inbox</span>
-      </div>
-    </div>
-    <div class="buttons">
-      <div class="hold-both">
-        <i class="am-icon fa fa-share-square-o"></i> <span class="am-texting">Sent</span>
-      </div>
-    </div>
-    <div class="buttons">
-      <div class="hold-both">
-        <i class="am-icon fa fa-trash"></i> <span class="am-texting">Trash</span>
-      </div>
-    </div>
-  </div>
-</div>
+      <!--Scrollbar wrapper-->
+    </aside>
