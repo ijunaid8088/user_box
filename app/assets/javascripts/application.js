@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require views/dt.boot.js
+//= require views/bootstrap.min.js
+//= require views/select.js
 //= require turbolinks
 //= require views/index.js
 //= require views/inbox.js
