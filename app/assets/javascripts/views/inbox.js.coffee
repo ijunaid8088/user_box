@@ -32,7 +32,37 @@ initializeDataTable = ->
       # $("#div-dropdown-checklist").css({"visibility": "visible", "width": "57px", "top": "0px", "left": "6px" })
       #do something here
 
+onComposeEmail = ->
+  $("#compose-email").on "click", ->
+    getEmailUsers()
+    $("#modal-add-email").modal("show")
+
+getEmailUsers = ->
+  onError = (jqXHR, status, error) ->
+    true
+
+  onSuccess = (users, status, jqXHR) ->
+    $.each users, (i, user) ->
+      # getGravatar(null, user.email)
+      $("#all-user-email").append(
+        "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+      )
+    email_users_select = $('#all-user-email').select2
+      placeholder: 'To',
+      allowClear: true,
+    email_users_select.val("").trigger("change")
+
+  settings =
+    cache: false
+    data: {}
+    dataType: 'json'
+    error: onError
+    success: onSuccess
+    type: 'GET'
+    url: "/all_mail_users"
+  jQuery.ajax(settings)
 
 window.initializeInbox = ->
   initializeDataTable()
+  onComposeEmail()
   console.log "hello"
