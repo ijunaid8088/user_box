@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/bootstrap.min" %>
   <%= stylesheet_link_tag "views/dt.boot" %>
+  <%= stylesheet_link_tag "views/dashboard/select.css" %>
   <%= stylesheet_link_tag "views/dashboard/icon.css" %>
   <%= stylesheet_link_tag "views/dashboard/metisMenu.min.css" %>
   <%= stylesheet_link_tag "views/dashboard/morris.css" %>
@@ -15,6 +16,7 @@
 
     <!--left navigation start-->
     <%= render :partial => 'shared/sidebar' %>
+    <%= render :partial => 'shared/compose_mail' %>
     <!--left navigation end-->
 
     <!-- START PAGE CONTENT -->
@@ -22,7 +24,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-12">
-          <h4 class="header-title"><a href="#" class="btn btn-info">Compose</a></h4>
+          <h4 class="header-title"><button class="btn btn-info" id="compose-email">Compose</button></h4>
           <div class="row">
             <div class="col-lg-12">
                 <div class="m-b-20">
@@ -37,7 +39,7 @@
                         <% @emails.each do |email| %>
                           <tr>
                             <td><%= email.sender.full_name %></td>
-                            <td><b><%= email.subject %></b>-<font style="color:#d3cfcf"><%= email.body %></font></td>
+                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %></font></td>
                           </tr>
                         <% end -%>
                       </tbody>

@@ -2370,3 +2370,7 @@ h3.timeline-title {
 #users_datatables_length {
   display: none;
 }
+
+* {
+  border-radius: 0 !important;
+}

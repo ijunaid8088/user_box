@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   include BCrypt
+  belongs_to :company
   has_many :sent_emails, class_name: "Email", foreign_key: "sender_id"
   has_many :received_emails, class_name: "Email", foreign_key: "recipient_id"
 
