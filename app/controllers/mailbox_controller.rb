@@ -1,6 +1,6 @@
 class MailboxController < ApplicationController
 
   def index
-    @emails = Email.all
+    @emails = Email.where(state: 1)
   end
 end
