@@ -34,35 +34,41 @@ initializeDataTable = ->
 
 onComposeEmail = ->
   $("#compose-email").on "click", ->
-    getEmailUsers()
     $("#modal-add-email").modal("show")
 
-getEmailUsers = ->
-  onError = (jqXHR, status, error) ->
-    true
+onLoadEven = ->
+  $.each users, (i, user) ->
+    # getGravatar(null, user.email)
+    $("#all-to-email").append(
+      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+    )
+  email_users_select = $('#all-to-email').select2
+    placeholder: 'To',
+    allowClear: true,
+  email_users_select.val("").trigger("change")
 
-  onSuccess = (users, status, jqXHR) ->
-    $.each users, (i, user) ->
-      # getGravatar(null, user.email)
-      $("#all-user-email").append(
-        "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
-      )
-    email_users_select = $('#all-user-email').select2
-      placeholder: 'To',
-      allowClear: true,
-    email_users_select.val("").trigger("change")
+  $.each users, (i, user) ->
+    # getGravatar(null, user.email)
+    $("#all-cc-email").append(
+      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+    )
+  email_users_select = $('#all-cc-email').select2
+    placeholder: 'Cc',
+    allowClear: true,
+  email_users_select.val("").trigger("change")
 
-  settings =
-    cache: false
-    data: {}
-    dataType: 'json'
-    error: onError
-    success: onSuccess
-    type: 'GET'
-    url: "/all_mail_users"
-  jQuery.ajax(settings)
+  $.each users, (i, user) ->
+    # getGravatar(null, user.email)
+    $("#all-bcc-email").append(
+      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+    )
+  email_users_select = $('#all-bcc-email').select2
+    placeholder: 'BCc',
+    allowClear: true,
+  email_users_select.val("").trigger("change")
 
 window.initializeInbox = ->
   initializeDataTable()
+  onLoadEven()
   onComposeEmail()
   console.log "hello"

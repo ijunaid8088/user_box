@@ -64,6 +64,7 @@
 </div>
 
 <script>
+  window.users = <%= @email_users.html_safe %>;
   $(document).ready(function () {
     window.initializeInbox();
   });
