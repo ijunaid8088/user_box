@@ -38,37 +38,42 @@ onComposeEmail = ->
 
 onLoadEven = ->
   $.each users, (i, user) ->
-    # getGravatar(null, user.email)
     $("#all-to-email").append(
-      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+      "<option value='#{user.id}'>#{user.firstname} (#{user.email})</option>"
     )
-  email_users_select = $('#all-to-email').select2
+  email_to_select = $('#all-to-email').select2
     placeholder: 'To',
-    allowClear: true,
-  email_users_select.val("").trigger("change")
+    allowClear: true
 
   $.each users, (i, user) ->
-    # getGravatar(null, user.email)
     $("#all-cc-email").append(
-      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+      "<option value='#{user.id}'>#{user.firstname} (#{user.email})</option>"
     )
-  email_users_select = $('#all-cc-email').select2
+  email_cc_select = $('#all-cc-email').select2
     placeholder: 'Cc',
-    allowClear: true,
-  email_users_select.val("").trigger("change")
+    allowClear: true
 
   $.each users, (i, user) ->
-    # getGravatar(null, user.email)
     $("#all-bcc-email").append(
-      "<option value='#{user.email}'>#{user.firstname} (#{user.email})</option>"
+      "<option value='#{user.id}'>#{user.firstname} (#{user.email})</option>"
     )
-  email_users_select = $('#all-bcc-email').select2
+  email_bcc_select = $('#all-bcc-email').select2
     placeholder: 'BCc',
-    allowClear: true,
-  email_users_select.val("").trigger("change")
+    allowClear: true
+
+onSendEmail = ->
+  $("#send-email").on "click", ->
+    all_to_emails = $("#all-to-email").val()
+    cc = $("#all-cc-email").val()
+    bcc = $("#all-bcc-email").val()
+    console.log all_to_emails
+
+sendToMails = (users, cc, bcc) ->
+
 
 window.initializeInbox = ->
   initializeDataTable()
   onLoadEven()
   onComposeEmail()
+  onSendEmail()
   console.log "hello"

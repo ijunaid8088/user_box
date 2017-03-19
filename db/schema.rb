@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20170312092456) do
     t.integer  "state"
     t.integer  "head"
     t.integer  "tail"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "cc"
-    t.integer  "bcc"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "cc",           default: [],              array: true
+    t.integer  "bcc",          default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|
