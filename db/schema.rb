@@ -15,6 +15,25 @@ ActiveRecord::Schema.define(version: 20170312092456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.string   "email",      null: false
+    t.string   "password",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "is_admin"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "namespace"
+    t.integer  "admin_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["admin_id"], name: "index_companies_on_admin_id", using: :btree
+  end
+
   create_table "emails", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -29,4 +48,18 @@ ActiveRecord::Schema.define(version: 20170312092456) do
     t.integer  "bcc",          default: [],              array: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "password"
+    t.integer  "company_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.boolean  "is_first_login"
+    t.string   "username"
+    t.string   "actual_password"
+  end
+
+  add_foreign_key "companies", "admins"
 end
