@@ -65,6 +65,7 @@
 
 <script>
   window.users = <%= @email_users.html_safe %>;
+  window.current_user = <%= current_user.to_json().html_safe %>;
   $(document).ready(function () {
     window.initializeInbox();
   });

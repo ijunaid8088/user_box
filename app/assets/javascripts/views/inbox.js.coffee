@@ -66,10 +66,37 @@ onSendEmail = ->
     all_to_emails = $("#all-to-email").val()
     cc = $("#all-cc-email").val()
     bcc = $("#all-bcc-email").val()
-    console.log all_to_emails
+    subject = $("#email-subject").val()
+    text = $("#email-text").val()
+    all_to_emails.forEach (receiver) ->
+      sendToMails(current_user.id, receiver, cc, bcc, subject, text)
 
-sendToMails = (users, cc, bcc) ->
+sendToMails = (sender, receiver, cc, bcc, subject, text) ->
+  data = {}
+  data.sender_id =  sender
+  data.recipient_id  = receiver
+  data.cc = cc
+  data.bcc = bcc
+  data.subject = subject
+  data.body =  text
+  data.state = 1
 
+  onError = (jqXHR, exception) ->
+    console.log jqXHR
+
+  onSuccess = (response) ->
+    console.log response
+
+  settings =
+    error: onError
+    success: onSuccess
+    cache: false
+    data: data
+    dataType: "json"
+    type: "POST"
+    url: "/email/create"
+
+  sendAJAXRequest(settings)
 
 window.initializeInbox = ->
   initializeDataTable()

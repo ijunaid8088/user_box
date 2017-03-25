@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   post "/session/create" => "session#create"
+  post "/email/create" => "email#create"
   get "/first_sign_in" => "welcome#first_sign_in"
   post "/save_password" => "session#save_password"
   get "/mail_box" => "mailbox#index"
