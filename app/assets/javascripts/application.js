@@ -19,4 +19,5 @@
 //= require turbolinks
 //= require views/index.js
 //= require views/inbox.js
+//= require views/sent.js
 
