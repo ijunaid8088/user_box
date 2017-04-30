@@ -20,4 +20,6 @@
 //= require views/index.js
 //= require views/inbox.js
 //= require views/sent.js
+//= require views/delete.js
+//= require views/draft.js
 

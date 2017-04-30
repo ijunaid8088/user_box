@@ -8,7 +8,17 @@ class MailboxController < ApplicationController
   end
 
   def sent
-    @emails = Email.where(state: 3, sender_id: current_user.id)
+    @emails = Email.where(sender_id: current_user.id)
+    curren_company = current_user.company.id
+  end
+
+  def delete
+    @emails = Email.where(state: 0, sender_id: current_user.id)
+    curren_company = current_user.company.id
+  end
+
+  def draft
+    @emails = Email.where(state: 2, sender_id: current_user.id)
     curren_company = current_user.company.id
   end
 end

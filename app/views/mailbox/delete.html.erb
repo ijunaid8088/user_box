@@ -1,0 +1,69 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/bootstrap.min" %>
+  <%= stylesheet_link_tag "views/dt.boot" %>
+  <%= stylesheet_link_tag "views/dashboard/select.css" %>
+  <%= stylesheet_link_tag "views/dashboard/icon.css" %>
+  <%= stylesheet_link_tag "views/dashboard/metisMenu.min.css" %>
+  <%= stylesheet_link_tag "views/dashboard/morris.css" %>
+  <%= stylesheet_link_tag "views/dashboard/style.css" %>
+<% end %>
+
+<div id="page-wrapper">
+
+  <!-- Top Bar Start -->
+  <!-- Page content start -->
+  <div class="page-contentbar">
+
+    <!--left navigation start-->
+    <%= render :partial => 'shared/sidebar' %>
+    <!--left navigation end-->
+
+    <!-- START PAGE CONTENT -->
+    <div id="page-right-content">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <div class="row">
+            <d iv class="col-lg-12">
+                <div class="m-b-20">
+                  <table id="delete_datatables" class="table table-striped m-0">
+                      <thead>
+                        <tr role="row" class="heading">
+                          <th name="order_name" class="sorting">Sender</th>
+                          <th name="order_namespace" class="sorting">Message</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @emails.each do |email| %>
+                          <tr>
+                            <td><%= email.sender.full_name %></td>
+                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %></font></td>
+                          </tr>
+                        <% end -%>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+          </div>
+            <!--- end row -->
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+  </div>
+      <!-- end container -->
+
+      <%= render :partial => 'shared/footer' %>
+      <!-- end footer -->
+
+    </div>
+    <!-- End #page-right-content -->
+
+  </div>
+  <!-- end .page-contentbar -->
+</div>
+
+<script>
+  window.current_user = <%= current_user.to_json().html_safe %>;
+  $(document).ready(function () {
+    window.initializeDelete();
+  });
+</script>

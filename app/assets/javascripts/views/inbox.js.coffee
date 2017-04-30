@@ -98,9 +98,53 @@ sendToMails = (sender, receiver, cc, bcc, subject, text) ->
 
   sendAJAXRequest(settings)
 
+
+onSendDraft = ->
+  $("#save-draft").on "click", ->
+    all_to_emails = $("#all-to-email").val()
+    cc = $("#all-cc-email").val()
+    bcc = $("#all-bcc-email").val()
+    subject = $("#email-subject").val()
+    text = $("#email-text").val()
+    all_to_emails.forEach (receiver) ->
+      sendToDraft(current_user.id, receiver, cc, bcc, subject, text)
+
+sendToDraft = (sender, receiver, cc, bcc, subject, text) ->
+  data = {}
+  data.sender_id =  sender
+  data.recipient_id  = receiver
+  data.cc = cc
+  data.bcc = bcc
+  data.subject = subject
+  data.body =  text
+  data.state = 2
+
+  onError = (jqXHR, exception) ->
+    console.log jqXHR
+
+  onSuccess = (response) ->
+    console.log response
+
+  settings =
+    error: onError
+    success: onSuccess
+    cache: false
+    data: data
+    dataType: "json"
+    type: "POST"
+    url: "/email/draft"
+
+  sendAJAXRequest(settings)
+
+onModalClose = ->
+  $('#modal-add-email').on 'hidden.bs.modal', (e) ->
+    console.log "hi"
+
 window.initializeInbox = ->
   initializeDataTable()
   onLoadEven()
   onComposeEmail()
   onSendEmail()
+  onSendDraft()
+  onModalClose()
   console.log "hello"

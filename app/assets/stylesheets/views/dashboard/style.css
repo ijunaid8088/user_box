@@ -2374,3 +2374,7 @@ h3.timeline-title {
 * {
   border-radius: 0 !important;
 }
+
+#side-menu a {
+  cursor: pointer;
+}
