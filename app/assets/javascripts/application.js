@@ -23,3 +23,4 @@
 //= require views/delete.js
 //= require views/draft.js
 
+//= require cable

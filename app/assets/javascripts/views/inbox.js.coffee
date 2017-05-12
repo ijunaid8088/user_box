@@ -142,9 +142,7 @@ onModalClose = ->
 
 window.initializeInbox = ->
   initializeDataTable()
-  onLoadEven()
-  onComposeEmail()
-  onSendEmail()
+ 
   onSendDraft()
   onModalClose()
   console.log "hello"

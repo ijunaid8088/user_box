@@ -32,16 +32,19 @@
                       <thead>
                         <tr role="row" class="heading">
                           <th name="order_name" class="sorting">Sender</th>
-                          <th name="order_namespace" class="sorting">Message</th>
+                          <th name="order_namespace" class="sorting">Message</th> <th name="order_namespace" class="sorting">At</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="messages-box"><div id="messages" data-company-id="<%= current_user.company_id %>">
                         <% @emails.each do |email| %>
-                          <tr>
+                          <tr >
                             <td><%= email.sender.full_name %></td>
-                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %></font></td>
+                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %><% if email.attachment? %><%= link_to "Download Resume", email.attachment_url %><% end %></font></td>
+                            <td><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
+
                           </tr>
                         <% end -%>
+                        </div>
                       </tbody>
                   </table>
                 </div>

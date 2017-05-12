@@ -10,6 +10,7 @@
               <strong>Oh snap!</strong> <p id="error-reason"></p>
           </div>
           <div class="container">
+          
               <div class="content-container clearfix">
                   <div class="col-md-12">
                       <div class="form-group">
@@ -28,6 +29,9 @@
                           <input id="email-subject" type="text" class="form-control" placeholder="Subject" />
                       </div>
                       <textarea id="email-text" class="form-control" placeholder="message"></textarea>
+                      <span class="btn btn-default btn-file">
+                              Browse <input id="email-attach"  class="form-control" placeholder="attach" type="file">
+                      </span>
                   </div>
               </div>
           </div>
@@ -35,7 +39,7 @@
         <fieldset>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-info pull-right marging-left" id="save-draft">Draft</button>
-            <button type="button" data-dismiss="modal" class="btn btn-success pull-left" id="send-email">Send</button>
+            <button type="button"  class="btn btn-success pull-left" id="send-email">Send</button>
           </div>
         </fieldset>
       </div>

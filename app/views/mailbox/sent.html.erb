@@ -30,14 +30,15 @@
                       <thead>
                         <tr role="row" class="heading">
                           <th name="order_name" class="sorting">Sender</th>
-                          <th name="order_namespace" class="sorting">Message</th>
+                          <th name="order_namespace" class="sorting">Message</th>   <th name="order_namespace" class="sorting">At</th>
                         </tr>
                       </thead>
                       <tbody>
                         <% @emails.each do |email| %>
                           <tr>
-                            <td><%= email.sender.full_name %></td>
+                            <td><%= email.recipient.full_name %></td>
                             <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %></font></td>
+                            <td><%= email.created_at.strftime("%I:%M %p %d-%b-%Y") %></td>
                           </tr>
                         <% end -%>
                       </tbody>

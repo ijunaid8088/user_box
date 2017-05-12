@@ -15,7 +15,8 @@ class EmailController < ApplicationController
         subject: params[:subject],
         state: 1,
         cc: params[:cc],
-        bcc: params[:bcc]
+        bcc: params[:bcc],
+        attachment: params[:attachment]
       )
       respond_to do |format|
         if @email.save
@@ -41,7 +42,8 @@ class EmailController < ApplicationController
         subject: params[:subject],
         state: params[:state],
         cc: params[:cc],
-        bcc: params[:bcc]
+        bcc: params[:bcc],
+        attachment: params[:attachment]
       )
       respond_to do |format|
         if @email.save
