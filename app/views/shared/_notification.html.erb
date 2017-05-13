@@ -1,6 +1,10 @@
-<tr>
-    <td><%= email.sender.full_name %></td>
-    <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %><% if email.attachment? %><%= link_to "Download Resume", email.attachment_url %><% end %></font></td>
-    <td><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
+ <tr >
 
-</tr>
+                            <td><%= email.sender.full_name %></td>
+                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9">
+                            <% if email.read==false %>unread
+                            <% else %><b>read</b>
+                            <% end %></font></td>
+                            <td> <%= link_to 'Open', email_path(email) %><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
+
+                          </tr>

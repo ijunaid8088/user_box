@@ -17,6 +17,7 @@
     <!--left navigation start-->
     <%= render :partial => 'shared/sidebar' %>
     <%= render :partial => 'shared/compose_mail' %>
+
     <!--left navigation end-->
 
     <!-- START PAGE CONTENT -->
@@ -24,6 +25,7 @@
     <div class="container">
     <div class="row">
       <div class="col-sm-12">
+      <div id="notification"></div>
           <h4 class="header-title"><button class="btn btn-info" id="compose-email">Compose</button></h4>
           <div class="row">
             <div class="col-lg-12">
@@ -38,9 +40,13 @@
                       <tbody id="messages-box"><div id="messages" data-company-id="<%= current_user.company_id %>">
                         <% @emails.each do |email| %>
                           <tr >
+
                             <td><%= email.sender.full_name %></td>
-                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9"><%= email.body %><% if email.attachment? %><%= link_to "Download Resume", email.attachment_url %><% end %></font></td>
-                            <td><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
+                            <td><b><%= email.subject %></b>-<font style="color:#c9c9c9">
+                            <% if email.read==false %>unread
+                            <% else %><b>read</b>
+                            <% end %></font></td>
+                            <td> <%= link_to 'Open', email_path(email) %><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
 
                           </tr>
                         <% end -%>

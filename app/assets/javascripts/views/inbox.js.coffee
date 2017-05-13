@@ -137,12 +137,13 @@ sendToDraft = (sender, receiver, cc, bcc, subject, text) ->
   sendAJAXRequest(settings)
 
 onModalClose = ->
-  $('#modal-add-email').on 'hidden.bs.modal', (e) ->
+  $('#closebutton').on 'click', (e) ->
     console.log "hi"
-
+    $('#modal-add-email')
 window.initializeInbox = ->
   initializeDataTable()
  
   onSendDraft()
   onModalClose()
   console.log "hello"
+

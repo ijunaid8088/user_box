@@ -1,0 +1,37 @@
+<div id="modal-reply-email" class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="vertical-alignment-helper">
+    <div class="modal-dialog vertical-align-center" style="width:45%;">
+      <div class="modal-content">
+<!--         <div class="modal-header">
+          <div class="caption"><h2>Add Company Details</h2></div>
+        </div> -->
+        <div class="modal-body">
+          <div class="alert alert-danger alert-dismissible fade in hidden error-on-save" role="alert">
+              <strong>Oh snap!</strong> <p id="error-reason"></p>
+          </div>
+            <button id="closereplybutton" type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="container">
+
+          
+              <div class="content-container clearfix">
+                  <div class="col-md-12">
+                      
+                  
+                      <textarea id="email-text" class="form-control" placeholder="message"></textarea>
+                     
+                  </div>
+              </div>
+          </div>
+        </div>
+        <fieldset>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-info pull-right marging-left" id="save-draft">Draft</button>
+            <button type="button"  class="btn btn-success pull-left" id="reply-email">Send</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

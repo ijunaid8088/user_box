@@ -9,6 +9,6 @@ class EmailsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    @email = Email.create!(sender_id: data['from'],recipient_id: data['to'],body: data['text'],subject: data['subject'],state: '1')
+    @email = Email.create!(sender_id: data['from'],recipient_id: data['to'],body: data['text'],subject: data['subject'],state: '1',read: false)
   end
 end
