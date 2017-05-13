@@ -22,4 +22,6 @@
 //= require views/sent.js
 //= require views/delete.js
 //= require views/draft.js
+//= require views/show.js
 
+//= require cable

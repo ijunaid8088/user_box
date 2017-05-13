@@ -16,37 +16,42 @@
 
     <!--left navigation start-->
     <%= render :partial => 'shared/sidebar' %>
+
     <!--left navigation end-->
 
     <!-- START PAGE CONTENT -->
+
+    <%= render :partial => 'shared/reply' %>
+    <%= render :partial => 'shared/farword' %>
     <div id="page-right-content">
     <div class="container">
     <div class="row">
       <div class="col-sm-12">
-      
       <div id="notification"></div>
+          
           <div class="row">
             <div class="col-lg-12">
                 <div class="m-b-20">
-                  <table id="sent_datatables" class="table table-striped m-0">
-                      <thead>
-                        <tr role="row" class="heading">
-                          <th name="order_name" class="sorting">To</th>
-                          <th name="order_namespace" class="sorting">Message</th>   <th name="order_namespace" class="sorting">At</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% @emails.each do |email| %>
-                          <tr >
-
-                            <td><%= email.recipient.full_name %></td>
-                            <td><b><%= email.subject %></b></td>
-
+                  <table id="emails_datatables" class="table table-striped m-0">
+                     
+                      <tbody >
+                      <button class="btn btn-info" id="b1">Reply</button>
+                      <button class="btn btn-info" id="b2">Farword</button>
+                      <div id="sender" data-sender-id="<%= @email.sender_id %>">
+                        <% if current_user == @email.recipient %>
+                          <div class="pull-left">
+              <img src="<%= avatar_url(current_user) %>" alt="" class="thumb-md img-circle">
+            </div>
+                            <h1 > From: <%= @email.sender.full_name %> </h1>
+                            <% else %>    <div class="pull-left">
+              <img src="<%= avatar_url(@email.sender) %>" alt="" class="thumb-md img-circle">
+            </div> <h1> To: <%= @email.recipient.full_name %> </h1> <% end %>
+                            <br>
+                            <h4><b>Subject:</b>  <div id="subject" data-subject="<%= @email.subject %>"> <%= @email.subject %></div> </h4><br><h6>Content:     <div id="body-content" data-content="<%= @email.body %>"> <%= @email.body %></div></h6>
                             
-                            <td><%= link_to 'Open', email_path(email) %><%= email.created_at.strftime("%I:%M%p-%d-%b-%Y") %></td>
+                            time: <%= @email.created_at.strftime("%I:%M%p-%d-%b-%Y") %>
 
-                          </tr>
-                        <% end -%>
+                        </div></div> 
                       </tbody>
                   </table>
                 </div>
@@ -69,8 +74,9 @@
 </div>
 
 <script>
+  window.users = <%= @email_users.html_safe %>;
   window.current_user = <%= current_user.to_json().html_safe %>;
   $(document).ready(function () {
-    window.initializeSent();
+    window.initializeInboxi();
   });
 </script>

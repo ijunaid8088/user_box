@@ -18,6 +18,8 @@ initializeDataTable = ->
     columns: [
       {data: "0", sWidth: "105px" },
       {data: "1", sWidth: "300px" },
+
+      {data: "2", sWidth: "30px" },
     ],
     iDisplayLength: 500
     columnDefs: [

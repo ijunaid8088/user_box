@@ -10,8 +10,8 @@
               <img src="<%= avatar_url(current_user) %>" alt="" class="thumb-md img-circle">
             </div>
             <div class="user-info">
-              <a href="#"><%= current_user.full_name %></a>
-              <p class="text-muted m-0">Administrator</p>
+              <a href="#" id="current" data-current-user="<%= current_user.id %>" ><%= current_user.full_name %></a>
+              <p class="text-muted m-0"><div id="company_id"> <%= current_user.company_id %></div></p>
             </div>
           </div>
           <!--- End User Detail box -->

@@ -15,7 +15,9 @@ class EmailController < ApplicationController
         subject: params[:subject],
         state: 1,
         cc: params[:cc],
-        bcc: params[:bcc]
+        bcc: params[:bcc],
+        attachment: params[:attachment],
+        read: false
       )
       respond_to do |format|
         if @email.save
@@ -41,7 +43,8 @@ class EmailController < ApplicationController
         subject: params[:subject],
         state: params[:state],
         cc: params[:cc],
-        bcc: params[:bcc]
+        bcc: params[:bcc],
+        attachment: params[:attachment]
       )
       respond_to do |format|
         if @email.save
@@ -56,5 +59,12 @@ class EmailController < ApplicationController
         format.json { render json: error.message, status: :unprocessable_entity }
       end
     end
+  end
+  def show
+    @email = Email.find(params[:id])
+    @email.update(read: true)
+    @current_company = current_user.company_id
+    # all_users = User.where(company_id: curren_company)
+    @email_users = User.where(company_id: @current_company).to_json()
   end
 end

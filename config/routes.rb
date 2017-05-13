@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/mail_box_delete" => "mailbox#delete"
   get "/mail_box_draft" => "mailbox#draft"
 
-
+  mount ActionCable.server => '/cable'
+  resources :email
   get "/all_mail_users" => "email#all_users_for_email"
 end
